@@ -1,0 +1,19 @@
+test-app
+docker-build
+
+# Vim
+*~
+*.swp
+
+# C/C++
+*.o
+*.a
+_build/
+
+# python
+_venv/
+__pycache__
+*.py[ocd]
+
+# Mac
+.DS_Store
