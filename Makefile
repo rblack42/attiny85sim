@@ -2,6 +2,8 @@
 PROJPATH	:= $(PWD)
 USRTGT		:= $(shell basename $(PROJPATH))
 TSTTGT		:= test-app
+VERSION		:= $(shell cat .version)
+BUILD		:= $(shell cat .build)
 
 # build sources
 USRCS	:= $(wildcard src/*.cpp)
@@ -43,6 +45,7 @@ $(LIB):	$(LOBJS)
 
 $(USRTGT):	$(UOBJS) $(LIB)
 	$(CXX) $(LFLAGS) $^ -o $@
+	./scripts/inc_build.sh
 
 $(TSTTGT):	$(TOBJS) $(LIB)
 	$(CXX) -o $@ $^
@@ -53,4 +56,38 @@ $(TSTTGT):	$(TOBJS) $(LIB)
 clean:
 	$(RM) $(USRTGT) $(TSTTGT) \
 		$(LIB) $(UOBJS) $(LOBJS) $(TOBJS)
+
+# version management
+.PHONY: version
+version: ## show current project version
+	@if ! ([ -f .version ]); then \
+		echo "v0.0.0" > .version; \
+	fi
+	cat .version
+
+.PHONY: build
+build: ## show current project build number
+	@if ! ([ -f .build ]); then \
+		echo "0" > .build; \
+	fi
+	cat .build
+
+
+.PHONY:	tag
+tag: ## tag this version
+	@echo $(VERSION)
+	git tag -a $(VERSION) -m "Auto tag $(VERSION)"
+
+.PHONY: bump-build
+bump-build:	## bump version build number
+	./scripts/inc_version.sh build;
+
+.PHONY: bump-feature
+bump-feature: ## bump version feature number
+	./scripts/inc_version.sh minor
+
+.PHONY: bump-release
+bump-release: ## bump version release number
+	./scripts/inc_version.sh major
+
 

@@ -1,0 +1,21 @@
+#include "Component.h"
+
+int Component::component_id = 100;
+
+// constructor
+Component::Component() {
+    data = 0;       // wire value is initially 0
+    id = component_id++; // get the next available wire id
+}
+
+// Accessors do not modify object state
+int Component::get_id(void) {
+    // return this component id
+    return id;
+}
+
+uint16_t Component::get_data(void) {
+    // return current wire signal value
+    return data;
+}
+

@@ -17,3 +17,7 @@ __pycache__
 
 # Mac
 .DS_Store
+
+# executables
+attiny85sim
+test-app
