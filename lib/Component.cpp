@@ -14,8 +14,12 @@ int Component::get_id(void) {
     return id;
 }
 
-uint16_t Component::get_data(void) {
-    // return current wire signal value
+uint16_t Component::read(void) {
+    // return current component signal value
     return data;
 }
 
+void Component::write(uint16_t val) {
+    // set a nw data value in the component
+    data = val;
+}
