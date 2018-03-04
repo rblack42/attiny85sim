@@ -14,8 +14,12 @@ int Wire::get_id(void) {
     return id;
 }
 
-uint16_t Wire::get_data(void) {
+uint16_t Wire::read(void) {
     // return current wire signal value
     return data;
+}
+
+void Wire::write(uint16_t val) {
+    data = val;
 }
 
