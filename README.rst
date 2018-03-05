@@ -9,6 +9,9 @@ attiny85sim
 
 ..  image:: https://travis-ci.org/rblack42/attiny85sim.svg?branch=master
     :alt: Build badge from Tavis-CI
+    (
+..  image:: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
+
 
 This project implement a simple simulator for a subset of the ``attiny85`` AVR
 processor, This system is used in a beginners course on computer architecture.
