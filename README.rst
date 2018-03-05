@@ -5,7 +5,7 @@ attiny85sim
 :Email: rblack@austincc.edu
 :Date: Mar 3, 2018
 :Course: *COSC2325 - Computer Architecture and Machine Language*
-:Website: `Lecture NOtes <http://www.co-pylit.org/courses/cosc2325/index.html>`_
+:Website: `Lecture Notes <http://www.co-pylit.org/courses/cosc2325/index.html>`_
 
 ..  image:: https://travis-ci.org/rblack42/attiny85sim.svg?branch=master
     :alt: Build badge from Tavis-CI
